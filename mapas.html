@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Fredoka:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+    <!-- MENU -->
+    <header class="cabecera">
+        <a class="logo" href="index.html">
+            <img class="logo-img" src="img/escudo-vintage-claro.svg" alt="Escudo Eugenia Ravasco">
+            <span class="logo-materia">GEOGRAFÍA</span>
+            <span class="logo-colegio">U.E. EUGENIA<br>RAVASCO</span>
+        </a>
+
+        <nav>
+            <a href="index.html#inicio">Inicio</a>
+            <a href="index.html#introduccion">Introducción</a>
+            <a href="index.html#recursos">Recursos</a>
+            <a href="temario.html">Temario</a>
+            <a href="test.html">Test</a>
+        </nav>
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- Encabezado de la página -->
+        <section id="mapas" class="mapas">
+
+            <div class="mapas-encabezado">
+                <p class="subtitulo-seccion">ARCHIVO DE CONSULTA · RECURSO 02</p>
+                <h1>MAPAS</h1>
+                <p class="mapas-frase">Un mapa es una representación del territorio en una superficie plana. Aquí aprenderás a leerlos y a usarlos.</p>
+            </div>
+
+
+            <!-- 1. Nuestro colegio en el mapa -->
+            <div class="mapa-colegio">
+                <div class="encabezado-seccion">
+                    <div>
+                        <p class="subtitulo-seccion">LÁMINA I</p>
+                        <h2>¿DÓNDE ESTAMOS?</h2>
+                    </div>
+                    <p class="encabezado-nota">U.E. EUGENIA RAVASCO<br>TIQUIPAYA, COCHABAMBA</p>
+                </div>
+
+                <iframe id="mapa-colegio"
+                    src="https://www.google.com/maps?q=Unidad+Educativa+Eugenia+Ravasco,+Tiquipaya,+Cochabamba&output=embed"
+                    width="100%"
+                    height="450"
+                    title="Mapa de la Unidad Educativa Eugenia Ravasco en Tiquipaya"
+                    loading="lazy">
+                </iframe>
+            </div>
+
+
+            <!-- 2. Elementos de un mapa -->
+            <div class="elementos-mapa">
+                <div class="encabezado-seccion">
+                    <div>
+                        <p class="subtitulo-seccion">LÁMINA II</p>
+                        <h2>ELEMENTOS DE UN MAPA</h2>
+                    </div>
+                    <p class="encabezado-nota">LO QUE TODO MAPA<br>DEBE TENER</p>
+                </div>
+
+                <div class="tarjetas-elementos">
+
+                    <article class="tarjeta-elemento">
+                        <span class="tarjeta-numero">01</span>
+                        <h3>Título</h3>
+                        <p>Indica qué lugar o qué tema muestra el mapa.</p>
+                    </article>
+
+                    <article class="tarjeta-elemento">
+                        <span class="tarjeta-numero">02</span>
+                        <h3>Escala</h3>
+                        <p>Dice cuántas veces se redujo el territorio real para dibujarlo.</p>
+                    </article>
+
+                    <article class="tarjeta-elemento">
+                        <span class="tarjeta-numero">03</span>
+                        <h3>Leyenda</h3>
+                        <p>Explica qué significa cada símbolo y cada color del mapa.</p>
+                    </article>
+
+                    <article class="tarjeta-elemento">
+                        <span class="tarjeta-numero">04</span>
+                        <h3>Rosa de los vientos</h3>
+                        <p>Señala los puntos cardinales: norte, sur, este y oeste.</p>
+                    </article>
+
+                    <article class="tarjeta-elemento">
+                        <span class="tarjeta-numero">05</span>
+                        <h3>Coordenadas</h3>
+                        <p>Las líneas de latitud y longitud que ubican cualquier punto de la Tierra.</p>
+                    </article>
+
+                </div>
+            </div>
+
+
+            <!-- 3. Tipos de mapas -->
+            <div class="tipos-mapa">
+                <div class="encabezado-seccion">
+                    <div>
+                        <p class="subtitulo-seccion">LÁMINA III</p>
+                        <h2>TIPOS DE MAPAS</h2>
+                    </div>
+                    <p class="encabezado-nota">CADA MAPA CUENTA<br>UNA HISTORIA DISTINTA</p>
+                </div>
+
+                <table class="tabla-mapas">
+                    <thead>
+                        <tr>
+                            <th>Tipo de mapa</th>
+                            <th>¿Qué muestra?</th>
+                            <th>Ejemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Físico</td>
+                            <td>El relieve: montañas, valles, llanuras, ríos y lagos.</td>
+                            <td>La cordillera de los Andes</td>
+                        </tr>
+                        <tr>
+                            <td>Político</td>
+                            <td>Países, departamentos, ciudades y sus fronteras.</td>
+                            <td>Los 9 departamentos de Bolivia</td>
+                        </tr>
+                        <tr>
+                            <td>Temático</td>
+                            <td>Un solo tema: clima, población, vegetación, etc.</td>
+                            <td>Mapa de climas de Bolivia</td>
+                        </tr>
+                        <tr>
+                            <td>Topográfico</td>
+                            <td>La altura del terreno con curvas de nivel.</td>
+                            <td>La cordillera del Tunari</td>
+                        </tr>
+                        <tr>
+                            <td>Hidrográfico</td>
+                            <td>Ríos, lagos y cuencas de agua.</td>
+                            <td>El lago Titicaca y sus ríos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!-- 4. Mapas para explorar -->
+            <div class="mapas-explorar">
+                <div class="encabezado-seccion">
+                    <div>
+                        <p class="subtitulo-seccion">LÁMINA IV</p>
+                        <h2>PARA EXPLORAR</h2>
+                    </div>
+                    <p class="encabezado-nota">MAPAS INTERACTIVOS<br>EN INTERNET</p>
+                </div>
+
+                <ul class="enlaces-mapas">
+                    <li>
+                        <a href="https://earth.google.com/web/" target="_blank">Google Earth <span>↗</span></a>
+                        <p>Recorre el planeta en 3D, desde el espacio hasta tu calle.</p>
+                    </li>
+                    <li>
+                        <a href="https://geo.gob.bo/" target="_blank">GeoBolivia <span>↗</span></a>
+                        <p>Mapas oficiales del Estado Plurinacional de Bolivia.</p>
+                    </li>
+                    <li>
+                        <a href="https://mapmaker.nationalgeographic.org/" target="_blank">National Geographic MapMaker <span>↗</span></a>
+                        <p>Crea tus propios mapas con capas de clima, población y más.</p>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========== PIE DE PÁGINA ========== -->
+    <footer class="pie">
+
+        <div class="pie-principal">
+
+            <!-- Logo -->
+            <div class="pie-logo">
+                <img class="logo-img" src="img/escudo.svg" alt="Escudo Eugenia Ravasco">
+                <div>
+                    <b>GEOGRAFÍA</b>
+                    <span>U.E. EUGENIA RAVASCO</span>
+                </div>
+            </div>
+
+            <!-- Dirección -->
+            <div class="pie-dato">
+                <span>VISÍTANOS</span>
+                <p>Villa Esperanza<br>Tiquipaya, Cochabamba</p>
+            </div>
+
+            <!-- Contacto -->
+            <div class="pie-dato">
+                <span>CONTACTO</span>
+                <p>Teléfono<br><a href="tel:431031"><b>431031</b></a></p>
+            </div>
+
+        </div>
+
+        <!-- Línea final -->
+        <div class="pie-final">
+            <p>MÉRIDA MATÍAS - NELSON GUTIERREZ - AMIA VELÁSQUEZ</p>
+        </div>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,429 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e4d9c1;
+    color: #292927;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: #e4d9c1;
+}
+
+/* 3. CABECERA Y MENÚ */
+.cabecera {
+    position: sticky;             /* se queda pegada arriba al bajar */
+    top: 0;
+    z-index: 100;
+    display: grid;               /*aca usamos grid*/
+    grid-template-columns: 1fr; /*1 columna*/
+    gap: 4px;
+    padding: 10px 16px 0px;   /*arriba, izq, derecha, abajo*/
+    background-color: #292927;
+}
+
+.logo {
+    display: grid;
+    grid-template-columns: auto auto;   /*Dos columnas (una para el escudo y otra para el texto), cada una del ancho de su contenido*/
+    justify-content: start;    /*los pega a la izquierda*/
+    align-items: center;      /*centra verticalmente*/
+    gap: 12px;  /*separación entre escudo y texto.*/
+    text-decoration: none; /*quita el disenio de los enlaces*/
+}
+
+.logo-img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain; /*(contain, cover y fill)se usa para imgs o videos ajusta el tamanio a las medidas que le dijimos sin pasarse del limite o para que no se deforme*/
+}
+
+.logo-materia {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.03em; /*1 em -> 18 px*/
+}
+
+/* Menú en celular: 3 enlaces por fila, sin cortar las palabras */
+.cabecera nav {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    padding-bottom: 6px;
+    white-space: nowrap;          /* "Temas Importantes" no se parte en dos líneas */
+}
+
+.cabecera nav a {
+    position: relative;
+    padding: 8px 11px;
+    color: #f2ead8;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.cabecera nav a:hover {
+    color: #c9b997;
+}
+
+
+/* ---------- SECCIÓN NOSOTROS ---------- */
+.nosotros {
+    padding: 50px 24px 80px;
+    background-color: #e4d9c1;
+    background-image:
+        linear-gradient(rgba(228, 217, 193, 0.3), rgba(228, 217, 193, 0.3)),
+        url('../img/fondo-mapa.jpg');
+    background-size: cover;       /* el mapa cubre toda la sección */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Encabezado centrado */
+.nosotros-encabezado {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* Cinta negra con bordes irregulares */
+.etiqueta-cinta {
+    display: inline-block;
+    padding: 12px 25px 13px;
+    background-color: #292927;
+    color: #f2ead8;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    clip-path: polygon(2% 8%, 99% 0, 96% 88%, 0 100%);
+    transform: rotate(-1.5deg);
+}
+
+.nosotros h1 {
+    margin: 25px 0 15px;
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 52px;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+}
+
+.nosotros-frase {
+    max-width: 480px;
+    margin: 0 auto;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+
+/* ---------- INTEGRANTES ---------- */
+.integrantes {
+    display: grid;
+    grid-template-columns: 1fr;   /* celular: uno debajo del otro */
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto 60px;
+}
+
+/* En celular: círculo a la izquierda y nombre a la derecha */
+.integrante {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    align-items: center;
+    padding: 16px 18px;
+    border: 1px solid #292927;
+    background-color: rgba(242, 234, 216, 0.6);   /* crema semitransparente */
+}
+
+.integrante h2 {
+    align-self: end;
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.integrante p {
+    align-self: start;
+    margin-top: 4px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+}
+
+
+/* ---------- TARJETAS DE PAPEL ---------- */
+.redes-sociales {
+    display: grid;
+    grid-template-columns: 1fr;   /* celular: una columna */
+    gap: 26px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.tarjeta-red {
+    position: relative;           /* el número se ubica respecto a la tarjeta */
+    padding: 55px 25px 40px;
+    background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.25), transparent 30%),
+        #f2ead8;
+    box-shadow: 8px 12px 24px rgba(62, 52, 35, 0.14);
+    clip-path: polygon(1% 1%, 99% 0, 100% 97%, 96% 99%, 91% 98%, 86% 100%, 79% 98%, 71% 100%, 64% 98%, 58% 100%, 50% 98%, 43% 100%, 35% 98%, 28% 100%, 20% 98%, 12% 100%, 5% 98%, 0 99%);
+    text-align: center;
+    transition: transform 0.25s;
+}
+
+/* Cada tarjeta un poco girada, como papeles sobre la mesa */
+.tarjeta-red:nth-child(1) { transform: rotate(-1.2deg); }
+.tarjeta-red:nth-child(2) { transform: rotate(0.8deg); }
+.tarjeta-red:nth-child(3) { transform: rotate(-0.6deg); }
+
+.tarjeta-red:hover {
+    transform: rotate(0) translateY(-6px);
+}
+
+.tarjeta-numero {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    border-bottom: 1px solid #292927;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 11px;
+}
+
+.tarjeta-red h3 {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.tarjeta-red p {
+    margin-top: 14px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.tarjeta-red a {
+    color: #9a3d27;
+    font-weight: 600;
+}
+
+.tarjeta-red a:hover {
+    color: #292927;
+}
+
+
+/* ---------- PIE DE PÁGINA ---------- */
+.pie {
+    padding: 55px 24px 25px;
+    background-color: #292927;
+    color: #f2ead8;
+}
+
+.pie-principal {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1280px;
+    margin: 0 auto 55px;
+}
+
+.pie-logo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 17px;
+}
+
+.pie-logo .logo-img {
+    width: 68px;
+    height: 68px;
+}
+
+.pie-logo div {
+    display: grid;
+}
+
+.pie-logo b {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+/* Etiquetas pequeñas: U.E. EUGENIA RAVASCO, VISÍTANOS, CONTACTO */
+.pie-logo span,
+.pie-dato > span {
+    color: #aca18a;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+}
+
+.pie-dato p {
+    margin-top: 10px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.pie-dato a {
+    text-decoration: none;
+}
+
+.pie-dato a:hover {
+    text-decoration: underline;
+}
+
+.pie-final {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 22px;
+    border-top: 1px solid rgba(242, 234, 216, 0.3);
+    font-family: 'Fredoka', sans-serif;
+    letter-spacing: 0.08em;
+}
+
+.pie-final p {
+    font-size: 9px;
+}
+
+
+/* ==========================================================
+   TABLET (pantallas desde 768px)
+   ========================================================== */
+@media (min-width: 768px) {
+
+    .logo-colegio {
+        display: block;
+        padding-left: 13px;
+        border-left: 1px solid rgba(242, 234, 216, 0.4);
+        font-family: 'Fredoka', sans-serif;
+        font-size: 9px;
+        line-height: 1.35;
+    }
+
+    /* Menú en una sola fila */
+    .cabecera nav {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+    }
+
+    .nosotros h1 {
+        font-size: 80px;
+    }
+
+    .nosotros-frase {
+        font-size: 18px;
+    }
+
+    /* Integrantes: círculo arriba y nombre abajo, centrados */
+    .integrante {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 25px 20px;
+        text-align: center;
+    }
+
+    .integrante-avatar {
+        grid-row: auto;
+        width: 76px;
+        height: 76px;
+        margin-bottom: 15px;
+    }
+
+    /* Tres columnas para integrantes y tarjetas */
+    .integrantes,
+    .redes-sociales {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Pie en tres columnas: logo | dirección | contacto */
+    .pie-principal {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+
+/* ==========================================================
+   LAPTOP (pantallas desde 1024px)
+   ========================================================== */
+@media (min-width: 1024px) {
+
+    /* Cabecera en una sola fila: logo a la izquierda, menú a la derecha */
+    .cabecera {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        height: 84px;
+        padding: 0 80px;
+    }
+
+    .logo-img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .logo-materia {
+        font-size: 21px;
+    }
+
+    .cabecera nav {
+        justify-self: end;
+    }
+
+    .cabecera nav a {
+        padding: 8px 18px;
+    }
+
+    .nosotros {
+        min-height: 786px;
+        padding: 70px 80px 110px;
+    }
+
+    .etiqueta-cinta {
+        font-size: 17px;
+    }
+
+    .nosotros h1 {
+        font-size: clamp(90px, 9vw, 130px);
+    }
+
+    .nosotros-frase {
+        font-size: 20px;
+    }
+
+    .integrantes {
+        gap: 24px;
+    }
+
+    .integrante-avatar {
+        width: 90px;
+        height: 90px;
+        font-size: 26px;
+    }
+
+    .redes-sociales {
+        gap: 34px;
+    }
+
+    .pie {
+        padding: 70px 80px 25px;
+    }
+
+    .pie-principal {
+        gap: 45px;
+        margin-bottom: 65px;
+    }
+}

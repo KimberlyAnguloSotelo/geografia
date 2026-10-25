@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e4d9c1;
+    color: #292927;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: #e4d9c1;
+}
+
+/* 3. CABECERA Y MENÚ PARA CELULAR*/
+.cabecera {
+    position: sticky;             /* se queda pegada arriba al bajar */
+    top: 0;
+    z-index: 100;
+    display: grid;               /*aca usamos grid*/
+    grid-template-columns: 1fr; /*1 columna*/
+    gap: 4px;
+    padding: 10px 16px 0px;   /*arriba, izq, derecha, abajo*/
+    background-color: #292927;
+}
+
+.logo {
+    display: grid;
+    grid-template-columns: auto auto;   /*Dos columnas (una para el escudo y otra para el texto), cada una del ancho de su contenido*/
+    justify-content: start;    /*los pega a la izquierda*/
+    align-items: center;      /*centra verticalmente*/
+    gap: 12px;  /*separación entre escudo y texto.*/
+    text-decoration: none; /*quita el disenio de los enlaces*/
+    color:  #e4d9c1;
+}
+
+.logo-img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain; /*(contain, cover y fill)se usa para imgs o videos ajusta el tamanio a las medidas que le dijimos sin pasarse del limite o para que no se deforme*/
+}
+
+.logo-materia {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.03em; /*1 em -> 18 px*/
+}
+
+/* Menú en celular: 3 enlaces por fila, sin cortar las palabras */
+.cabecera nav {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    padding-bottom: 6px;
+    white-space: nowrap;          /* "Temas Importantes" no se parte en dos líneas */
+}
+
+.cabecera nav a {
+    position: relative;
+    padding: 8px 11px;
+    color: #f2ead8;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.cabecera nav a:hover {
+    color: #c9b997;
+}
+
+/* ===== TABLET (pantallas desde 768px) ===== */
+@media (min-width: 768px) {
+ 
+    /* Menú en una sola fila */
+    .cabecera nav {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+    }
+}
+ 
+ 
+/* ===== LAPTOP (pantallas desde 1024px) ===== */
+@media (min-width: 1024px) {
+ 
+    /* Al saltar a una sección, deja espacio para que la cabecera no la tape */
+    html {
+        scroll-padding-top: 84px;
+    }
+ 
+    /* Cabecera en una sola fila: logo a la izquierda, menú a la derecha */
+    .cabecera {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        height: 84px;
+        padding: 0 80px;
+    }
+ 
+    .logo-img {
+        width: 54px;
+        height: 54px;
+    }
+ 
+    .logo-materia {
+        font-size: 21px;
+    }
+ 
+    .cabecera nav {
+        justify-self: end;        /* el menú se va a la derecha */
+    }
+ 
+    .cabecera nav a {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+}
+ 
