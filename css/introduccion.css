@@ -5,8 +5,15 @@
 
 body {
     background-color: #e4d9c1;
+    background-image:
+        linear-gradient(rgba(228, 217, 193, 0.3), rgba(228, 217, 193, 0.3)),
+        url('../img/fondo-mapa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;   /* el mapa se queda quieto al bajar */
     color: #292927;
     font-family: 'Montserrat', sans-serif;
+
 }
 
 img {
@@ -76,6 +83,118 @@ a {
     color: #c9b997;
 }
 
+ · CSS
+/* ===== INTRODUCCIÓN (celular) ===== */
+ 
+/* Fondo de mapa con una capa beige encima para aclararlo */
+.introduccion {
+    position: relative;           /* los dibujos se ubican respecto a la sección */
+    padding: 190px 24px 210px;    /* espacio arriba y abajo para los dibujos */
+    overflow: hidden;             /* lo que se salga de la sección no se ve */
+    text-align: center;
+    background-color: #e4d9c1;
+    background-image:
+        linear-gradient(rgba(228, 217, 193, 0.3), rgba(228, 217, 193, 0.3)),
+        url('../img/fondo-mapa.jpg');
+    background-size: cover;       /* el mapa cubre toda la sección */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+ 
+.introduccion-texto {
+    position: relative;
+    z-index: 1;                   /* el texto queda encima de los dibujos */
+    max-width: 640px;
+    margin: 0 auto;
+}
+ 
+/* Subtítulo pequeño "INTRODUCCIÓN · 01" */
+.subtitulo-seccion {
+    margin-bottom: 18px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+ 
+/* Título grande */
+.introduccion h2 {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+}
+ 
+/* Palabra en rojo: "GEOGRAFÍA?" */
+.acento {
+    position: relative;
+    color: #9a3d27;
+}
+ 
+/* Párrafo de la definición */
+.introduccion-texto p:last-child {
+    max-width: 560px;
+    margin: 30px auto 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+ 
+/* Dibujos decorativos en las esquinas */
+.dibujo {
+    position: absolute;
+    object-fit: contain;
+}
+ 
+.dibujo-globo {
+    top: 20px;
+    left: 8px;
+    width: 130px;
+    height: 150px;
+}
+ 
+.dibujo-capitolio {
+    top: 25px;
+    right: 8px;
+    width: 140px;
+    height: 140px;
+}
+ 
+.dibujo-pareja {
+    bottom: 15px;
+    left: 8px;
+    width: 140px;
+    height: 170px;
+}
+ 
+.dibujo-barco {
+    bottom: 20px;
+    right: 0;
+    width: 190px;
+    height: 160px;
+}
+
+/* FRANJA OSCURA DE LATITUD Y LONGITUD*/
+.franja-oscura {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 20px 16px;
+    overflow: hidden;
+    background-color: #292927;
+    color: #f2ead8;
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.franja-oscura b {
+    color: #978d78;
+}
+
 /* ===== TABLET (pantallas desde 768px) ===== */
 @media (min-width: 768px) {
  
@@ -84,6 +203,23 @@ a {
         grid-template-columns: none;
         grid-auto-flow: column;
     }
+
+    /*intro*/
+    .introduccion h2 {
+        font-size: 52px;
+    }
+ 
+    .introduccion-texto p:last-child {
+        font-size: 17px;
+    }
+
+     .franja-oscura {
+        justify-content: space-around;
+        padding: 22px 6vw;
+        font-size: 12px;
+        letter-spacing: 0.15em;
+    }
+
 }
  
  
@@ -119,6 +255,54 @@ a {
     .cabecera nav a {
         padding: 8px 18px;
         font-size: 13px;
+    }
+
+      /* Texto centrado vertical y horizontalmente, dibujos a los costados */
+    .introduccion {
+        display: grid;
+        align-content: center;
+        min-height: 520px;        /* 760 - 120 - 120, porque ya no usamos box-sizing */
+        padding: 120px 80px;
+    }
+ 
+    .introduccion h2 {
+        font-size: clamp(55px, 5.5vw, 82px);
+    }
+ 
+    .introduccion-texto p:last-child {
+        font-size: 19px;
+    }
+ 
+    .dibujo-globo {
+        top: 50px;
+        left: 40px;
+        width: 230px;
+        height: 270px;
+    }
+ 
+    .dibujo-capitolio {
+        top: 50px;
+        right: 50px;
+        width: 250px;
+        height: 250px;
+    }
+ 
+    .dibujo-pareja {
+        bottom: 40px;
+        left: 60px;
+        width: 220px;
+        height: 260px;
+    }
+ 
+    .dibujo-barco {
+        bottom: 30px;
+        right: 20px;
+        width: 340px;
+        height: 270px;
+    }
+
+     .franja-oscura {
+        font-size: 15px;
     }
 }
  

@@ -1,3 +1,4 @@
+/* ===== 1. ESTILOS GENERALES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +6,12 @@
 
 body {
     background-color: #e4d9c1;
+    background-image:
+        linear-gradient(rgba(228, 217, 193, 0.3), rgba(228, 217, 193, 0.3)),
+        url('../img/fondo-mapa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;   /* el mapa se queda quieto al bajar */
     color: #292927;
     font-family: 'Montserrat', sans-serif;
 }
@@ -18,51 +25,51 @@ a {
     color: #e4d9c1;
 }
 
-/* 3. CABECERA Y MENÚ PARA CELULAR*/
+
+/* ===== 2. CABECERA Y MENÚ ===== */
 .cabecera {
     position: sticky;             /* se queda pegada arriba al bajar */
     top: 0;
-    z-index: 100;
-    display: grid;               /*aca usamos grid*/
-    grid-template-columns: 1fr; /*1 columna*/
+    z-index: 100;                 /* queda por encima del contenido */
+    display: grid;
+    grid-template-columns: 1fr;   /* 1 columna: logo arriba, menú abajo */
     gap: 4px;
-    padding: 10px 16px 0px;   /*arriba, izq, derecha, abajo*/
+    padding: 10px 16px 0;         /* arriba, costados, abajo */
     background-color: #292927;
 }
 
 .logo {
     display: grid;
-    grid-template-columns: auto auto;   /*Dos columnas (una para el escudo y otra para el texto), cada una del ancho de su contenido*/
-    justify-content: start;    /*los pega a la izquierda*/
-    align-items: center;      /*centra verticalmente*/
-    gap: 12px;  /*separación entre escudo y texto.*/
-    text-decoration: none; /*quita el disenio de los enlaces*/
-    color:  #e4d9c1;
+    grid-template-columns: auto auto;   /* dos columnas: escudo y texto */
+    justify-content: start;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #e4d9c1;
 }
 
 .logo-img {
     width: 46px;
     height: 46px;
-    object-fit: contain; /*(contain, cover y fill)se usa para imgs o videos ajusta el tamanio a las medidas que le dijimos sin pasarse del limite o para que no se deforme*/
+    object-fit: contain;
 }
 
 .logo-materia {
     font-family: 'Black Ops One', Impact, sans-serif;
     font-size: 18px;
-    letter-spacing: 0.03em; /*1 em -> 18 px*/
+    letter-spacing: 0.03em;
 }
 
-/* Menú en celular: 3 enlaces por fila, sin cortar las palabras */
+/* Menú en celular: 3 enlaces por fila */
 .cabecera nav {
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: start;
     padding-bottom: 6px;
-    white-space: nowrap;          /* "Temas Importantes" no se parte en dos líneas */
+    white-space: nowrap;
 }
 
 .cabecera nav a {
-    position: relative;
     padding: 8px 11px;
     color: #f2ead8;
     font-family: 'Fredoka', sans-serif;
@@ -76,25 +83,400 @@ a {
     color: #c9b997;
 }
 
-/* ===== TABLET (pantallas desde 768px) ===== */
+
+/* ===== 3. EVALUACIÓN: ENCABEZADO ===== */
+.evaluacion {
+    padding: 85px 24px 90px;
+}
+
+.evaluacion-encabezado {
+    margin-bottom: 45px;
+}
+
+/* Subtítulo pequeño "COMPRUEBA LO APRENDIDO · 04" */
+.subtitulo-seccion {
+    margin-bottom: 18px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+
+/* Título grande "SECCIÓN DE EVALUACIÓN" */
+.evaluacion-encabezado h2 {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+}
+
+/* Palabra en rojo: "EVALUACIÓN" */
+.acento {
+    color: #9a3d27;
+}
+
+/* Nota "LEE CON ATENCIÓN..." */
+.encabezado-nota {
+    margin-top: 20px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+
+
+/* ===== 4. FORMULARIO ===== */
+.formulario {
+    display: grid;
+    gap: 30px;                    /* separación entre cada bloque del formulario */
+}
+
+/* Nombre y curso */
+.datos-estudiante {
+    display: grid;
+    gap: 16px;
+}
+
+.datos-estudiante label {
+    display: grid;
+    gap: 8px;                     /* separación entre el texto y la caja */
+}
+
+.datos-estudiante span {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.datos-estudiante input {
+    width: calc(100% - 26px);     /* 100% menos el padding (12 + 12) y el borde (1 + 1) */
+    padding: 12px;
+    border: 1px solid #292927;
+    background-color: #f2ead8;
+    color: #292927;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+/* Al hacer clic en la caja para escribir */
+.datos-estudiante input:focus {
+    outline: 2px solid #9a3d27;
+}
+
+
+/* ===== 5. PREGUNTAS ===== */
+
+/* Cada pregunta es una tarjeta de papel */
+.pregunta,
+.crucigrama {
+    min-width: 0;                 /* evita que el fieldset se salga de la pantalla en celular */
+    padding: 24px 20px;
+    border: 1px solid rgba(41, 41, 39, 0.24);
+    background-color: #f2ead8;
+    box-shadow: 8px 12px 24px rgba(62, 52, 35, 0.14);
+}
+
+/* Título de cada pregunta */
+.pregunta legend,
+.crucigrama legend {
+    float: left;                  /* saca el título del borde y lo mete dentro de la tarjeta */
+    width: 100%;
+    margin-bottom: 18px;
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* Número "01", "02"... antes del título */
+.pregunta legend span,
+.crucigrama legend span {
+    margin-right: 8px;
+    color: #9a3d27;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Lista de opciones */
+.opciones {
+    clear: both;                  /* empieza debajo del título */
+    display: grid;
+    gap: 10px;
+}
+
+/* Cada opción: círculo | letra | texto */
+.opciones label {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid rgba(41, 41, 39, 0.24);
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;              /* la manito, para que se note que se puede hacer clic */
+    transition: background-color 0.2s;
+}
+
+.opciones label:hover {
+    background-color: rgba(145, 135, 116, 0.15);
+}
+
+/* Opción marcada: se pinta más oscura */
+.opciones label:has(input:checked) {
+    border-color: #292927;
+    background-color: rgba(145, 135, 116, 0.25);
+}
+
+/* El círculo o cuadrito para marcar */
+.opciones input {
+    accent-color: #9a3d27;        /* color del círculo cuando está marcado */
+}
+
+/* Letra A, B, C, D dentro de un círculo */
+.opcion-letra {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width: 26px;
+    height: 26px;
+    border: 1px solid #292927;
+    border-radius: 50%;           /* lo vuelve un círculo */
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* ===== 6. CRUCIGRAMA ===== */
+.crucigrama > p {
+    clear: both;                  /* empieza debajo del título */
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.crucigrama-contenido {
+    display: grid;
+    gap: 30px;
+}
+
+.cuadricula {
+    border-collapse: collapse;    /* junta los bordes de las casillas en una sola línea */
+}
+
+.cuadricula td {
+    position: relative;           /* referencia para el número pequeño */
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid #292927;
+}
+
+/* Casillas negras */
+.cuadricula .bloqueada {
+    background-color: #292927;
+}
+
+/* Caja para escribir la letra */
+.cuadricula input {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    color: #292927;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;    /* la letra se ve en mayúscula aunque escribas en minúscula */
+}
+
+.cuadricula input:focus {
+    outline: 2px solid #9a3d27;
+    outline-offset: -2px;         /* el borde rojo queda por dentro de la casilla */
+}
+
+/* Número pequeño en la esquina de la casilla */
+.cruci-num {
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+/* Pistas */
+.pistas {
+    display: grid;
+    gap: 20px;
+}
+
+.pistas h4 {
+    margin-bottom: 10px;
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.pistas ul {
+    list-style: none;             /* quita los puntitos de la lista */
+}
+
+.pistas li {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.pistas b {
+    color: #9a3d27;
+}
+
+
+/* ===== 7. BOTONES ===== */
+.botones-formulario {
+    display: grid;
+    justify-items: start;         /* los botones no se estiran a todo el ancho */
+    gap: 16px;
+}
+
+.boton-principal,
+.boton-secundario {
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton-principal {
+    border: none;                 /* los <button> traen un borde por defecto */
+    background-color: #918774;
+    color: #292927;
+}
+
+.boton-secundario {
+    border: 2px solid #292927;
+    background-color: transparent;
+    color: #292927;
+}
+
+.boton-principal span,
+.boton-secundario span {
+    font-size: 18px;
+}
+
+.boton-principal:hover {
+    background-color: #a99d86;
+    transform: translateY(-2px);  /* sube un poco */
+}
+
+.boton-secundario:hover {
+    background-color: rgba(41, 41, 39, 0.08);
+    transform: translateY(-2px);
+}
+
+.boton-principal:active,
+.boton-secundario:active {
+    transform: translateY(1px);   /* se "hunde" al hacer clic */
+}
+
+
+/* ===== 8. FRANJA OSCURA ===== */
+.franja-oscura {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 20px 16px;
+    overflow: hidden;
+    background-color: #292927;
+    color: #f2ead8;
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.franja-oscura b {
+    color: #978d78;
+}
+
+
+/* ===== RESPONSIVE: TABLET (pantallas desde 768px) ===== */
 @media (min-width: 768px) {
- 
+
     /* Menú en una sola fila */
     .cabecera nav {
         grid-template-columns: none;
         grid-auto-flow: column;
     }
+
+    .evaluacion-encabezado h2 {
+        font-size: 52px;
+    }
+
+    /* Nombre y curso lado a lado */
+    .datos-estudiante {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .pregunta,
+    .crucigrama {
+        padding: 30px;
+    }
+
+    /* Opciones en dos columnas */
+    .opciones {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Casillas un poco más grandes */
+    .cuadricula td,
+    .cuadricula input {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* Pistas horizontales y verticales lado a lado */
+    .pistas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Botones en una fila */
+    .botones-formulario {
+        grid-auto-flow: column;
+        justify-content: start;
+    }
+
+    .franja-oscura {
+        justify-content: space-around;
+        padding: 22px 6vw;
+        font-size: 12px;
+        letter-spacing: 0.15em;
+    }
 }
- 
- 
-/* ===== LAPTOP (pantallas desde 1024px) ===== */
+
+
+/* ===== RESPONSIVE: LAPTOP (pantallas desde 1024px) ===== */
 @media (min-width: 1024px) {
- 
+
     /* Al saltar a una sección, deja espacio para que la cabecera no la tape */
     html {
         scroll-padding-top: 84px;
     }
- 
+
     /* Cabecera en una sola fila: logo a la izquierda, menú a la derecha */
     .cabecera {
         grid-template-columns: auto 1fr;
@@ -102,23 +484,54 @@ a {
         height: 84px;
         padding: 0 80px;
     }
- 
+
     .logo-img {
         width: 54px;
         height: 54px;
     }
- 
+
     .logo-materia {
         font-size: 21px;
     }
- 
+
     .cabecera nav {
         justify-self: end;        /* el menú se va a la derecha */
     }
- 
+
     .cabecera nav a {
         padding: 8px 18px;
-        font-size: 13px;
+    }
+
+    .evaluacion {
+        padding: 120px 80px 140px;
+    }
+
+    .evaluacion-encabezado {
+        margin-bottom: 65px;
+    }
+
+    .evaluacion-encabezado h2 {
+        font-size: clamp(55px, 5.5vw, 82px);
+    }
+
+    .pregunta legend,
+    .crucigrama legend {
+        font-size: 22px;
+    }
+
+    /* Crucigrama a la izquierda, pistas a la derecha */
+    .crucigrama-contenido {
+        grid-template-columns: auto 1fr;
+        align-items: start;
+        gap: 50px;
+    }
+
+    /* En laptop las pistas van una debajo de otra, al lado de la cuadrícula */
+    .pistas {
+        grid-template-columns: 1fr;
+    }
+
+    .franja-oscura {
+        font-size: 15px;
     }
 }
- 
