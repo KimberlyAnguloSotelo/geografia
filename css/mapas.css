@@ -1,0 +1,619 @@
+/* ==========================================================
+   PÁGINA MAPAS (mapas.html)
+   Mobile first: primero el celular, después tablet y laptop
+   ========================================================== */
+
+
+/* ---------- BASE ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e4d9c1;
+    color: #292927;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+/* ===== 2. CABECERA Y MENÚ ===== */
+.cabecera {
+    position: sticky;             /* se queda pegada arriba al bajar */
+    top: 0;
+    z-index: 100;                 /* queda por encima del contenido */
+    display: grid;
+    grid-template-columns: 1fr;   /* 1 columna: logo arriba, menú abajo */
+    gap: 4px;                     /* separación entre logo y menú */
+    padding: 10px 16px 0;         /* arriba, costados, abajo */
+    background-color: #292927;
+}
+
+.logo {
+    display: grid;
+    grid-template-columns: auto auto;   /* dos columnas: escudo y texto */
+    justify-content: start;             /* los pega a la izquierda */
+    align-items: center;                /* centra verticalmente */
+    gap: 12px;                          /* separación entre escudo y texto */
+    text-decoration: none;              /* quita el subrayado del enlace */
+    color: #e4d9c1;
+}
+
+.logo-img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;          /* la imagen entra completa sin deformarse */
+}
+
+.logo-materia {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.03em;       /* 1em = 18px */
+}
+
+/* Menú en celular: 3 enlaces por fila */
+.cabecera nav {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    padding-bottom: 6px;
+    white-space: nowrap;          /* "Temas Importantes" no se parte en dos líneas */
+}
+
+.cabecera nav a {
+    position: relative;
+    padding: 8px 11px;
+    color: #f2ead8;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.cabecera nav a:hover {
+    color: #c9b997;
+}
+
+
+/* ---------- SECCIÓN MAPAS ---------- */
+.mapas {
+    padding: 50px 24px 80px;
+    background-color: #e4d9c1;
+    background-image:
+        linear-gradient(rgba(228, 217, 193, 0.3), rgba(228, 217, 193, 0.3)),
+        url('../img/fondo-mapa.jpg');
+    background-size: cover;       /* el mapa cubre toda la sección */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Todo el contenido con un ancho máximo y centrado */
+.mapas > * {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Encabezado de la página, centrado */
+.mapas-encabezado {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subtitulo-seccion {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+
+.mapas h1 {
+    margin: 18px 0 15px;
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+}
+
+.mapas-frase {
+    max-width: 520px;
+    margin: 0 auto;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Cada bloque (lámina) separado del anterior */
+.mapa-colegio,
+.elementos-mapa,
+.tipos-mapa,
+.mapas-explorar {
+    margin-top: 60px;
+}
+
+/* Encabezado de cada lámina: título y nota */
+.encabezado-seccion {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.encabezado-seccion h2 {
+    margin-top: 10px;
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 0.95;
+}
+
+.encabezado-nota {
+    padding-left: 15px;
+    border-left: 3px solid #292927;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+}
+
+
+/* ---------- 1. MAPA DEL COLEGIO (iframe) ---------- */
+.mapa-colegio iframe {
+    display: block;
+    width: 100%;
+    height: 320px;
+    border: 6px solid #f2ead8;    /* marco de papel alrededor del mapa */
+    outline: 1px solid #292927;
+    background-color: #d5c7aa;
+    box-shadow: 8px 12px 24px rgba(62, 52, 35, 0.18);
+    filter: sepia(0.35);          /* le da un tono antiguo al mapa de Google */
+    transition: filter 0.3s;
+}
+
+.mapa-colegio iframe:hover {
+    filter: none;                 /* al pasar el mouse se ve con sus colores */
+}
+
+
+/* ---------- 2. ELEMENTOS DE UN MAPA ---------- */
+.tarjetas-elementos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* celular: dos columnas */
+    gap: 16px;
+}
+
+/* Tarjetas de papel con el borde de abajo rasgado */
+.tarjeta-elemento {
+    position: relative;           /* el número se ubica respecto a la tarjeta */
+    padding: 44px 16px 26px;
+    background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.25), transparent 30%),
+        #f2ead8;
+    box-shadow: 8px 12px 24px rgba(62, 52, 35, 0.14);
+    clip-path: polygon(1% 1%, 99% 0, 100% 97%, 96% 99%, 91% 98%, 86% 100%, 79% 98%, 71% 100%, 64% 98%, 58% 100%, 50% 98%, 43% 100%, 35% 98%, 28% 100%, 20% 98%, 12% 100%, 5% 98%, 0 99%);
+    transition: transform 0.25s;
+}
+
+/* La quinta tarjeta ocupa las dos columnas en celular */
+.tarjeta-elemento:last-child {
+    grid-column: 1 / -1;
+}
+
+/* Un poco torcidas, como papeles sobre la mesa */
+.tarjeta-elemento:nth-child(odd)  { transform: rotate(-1deg); }
+.tarjeta-elemento:nth-child(even) { transform: rotate(0.8deg); }
+
+.tarjeta-elemento:hover {
+    transform: rotate(0) translateY(-6px);
+}
+
+.tarjeta-numero {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    border-bottom: 1px solid #292927;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 11px;
+}
+
+.tarjeta-elemento h3 {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.tarjeta-elemento p {
+    margin-top: 8px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ---------- 3. TABLA: TIPOS DE MAPAS ---------- */
+.tipos-mapa {
+    overflow-x: auto;             /* en celular la tabla se puede deslizar de lado */
+}
+
+.tabla-mapas {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;    /* une los bordes de las celdas */
+    background-color: rgba(242, 234, 216, 0.8);
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+}
+
+.tabla-mapas th {
+    padding: 14px 16px;
+    background-color: #292927;
+    color: #f2ead8;
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.tabla-mapas td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(41, 41, 39, 0.24);
+    line-height: 1.4;
+    vertical-align: top;
+}
+
+/* Primera columna (el tipo de mapa) en rojo óxido */
+.tabla-mapas td:first-child {
+    color: #9a3d27;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Filas intercaladas y fila resaltada al pasar el mouse */
+.tabla-mapas tbody tr:nth-child(even) {
+    background-color: rgba(213, 199, 170, 0.5);
+}
+
+.tabla-mapas tbody tr:hover {
+    background-color: #d5c7aa;
+}
+
+
+/* ---------- 4. ENLACES PARA EXPLORAR ---------- */
+.enlaces-mapas {
+    display: grid;
+    grid-template-columns: 1fr;   /* celular: una columna */
+    gap: 16px;
+    list-style: none;             /* quita los puntos de la lista */
+}
+
+.enlaces-mapas li {
+    padding: 20px 18px;
+    border: 1px solid #292927;
+    background-color: rgba(242, 234, 216, 0.7);
+    transition: background-color 0.2s;
+}
+
+.enlaces-mapas li:hover {
+    background-color: #f2ead8;
+}
+
+.enlaces-mapas a {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.enlaces-mapas a span {
+    color: #9a3d27;
+}
+
+.enlaces-mapas a:hover {
+    text-decoration: underline;
+}
+
+.enlaces-mapas p {
+    margin-top: 8px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ---------- BOTÓN VOLVER ---------- */
+.boton-principal {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: max-content;           /* tan ancho como su texto */
+    margin-top: 55px;
+    padding: 16px 20px;
+    background-color: #918774;
+    color: #292927;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton-principal span {
+    font-size: 22px;
+}
+
+.boton-principal:hover {
+    background-color: #a99d86;
+    transform: translateY(-2px);
+}
+
+.boton-principal:active {
+    transform: translateY(1px);
+}
+
+
+/* ---------- PIE DE PÁGINA ---------- */
+.pie {
+    padding: 55px 24px 25px;
+    background-color: #292927;
+    color: #f2ead8;
+}
+
+.pie-principal {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1280px;
+    margin: 0 auto 55px;
+}
+
+.pie-logo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 17px;
+}
+
+.pie-logo .logo-img {
+    width: 68px;
+    height: 68px;
+}
+
+.pie-logo div {
+    display: grid;
+}
+
+.pie-logo b {
+    font-family: 'Black Ops One', Impact, sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+/* Etiquetas pequeñas: U.E. EUGENIA RAVASCO, VISÍTANOS, CONTACTO */
+.pie-logo span,
+.pie-dato > span {
+    color: #aca18a;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+}
+
+.pie-dato address,
+.pie-dato p {
+    margin-top: 10px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    font-style: normal;           /* <address> viene en cursiva por defecto */
+    line-height: 1.6;
+}
+
+.pie-dato a {
+    text-decoration: none;
+}
+
+.pie-dato a:hover {
+    text-decoration: underline;
+}
+
+/* Menú repetido del pie (si lo usas) */
+.pie-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: start;
+    gap: 10px;
+}
+
+.pie-menu a {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12px;
+    text-underline-offset: 4px;
+}
+
+.pie-menu a:hover {
+    color: #c9b997;
+}
+
+.pie-final {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 22px;
+    border-top: 1px solid rgba(242, 234, 216, 0.3);
+    font-family: 'Fredoka', sans-serif;
+    letter-spacing: 0.08em;
+}
+
+.pie-final p,
+.pie-final small {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 9px;
+}
+
+
+/* ==========================================================
+   TABLET (pantallas desde 768px)
+   ========================================================== */
+@media (min-width: 768px) {
+
+    .logo-colegio {
+        display: block;
+        padding-left: 13px;
+        border-left: 1px solid rgba(242, 234, 216, 0.4);
+        font-family: 'Fredoka', sans-serif;
+        font-size: 9px;
+        line-height: 1.35;
+    }
+
+    /* Menú en una sola fila */
+    .cabecera nav {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+    }
+
+    .mapas h1 {
+        font-size: 92px;
+    }
+
+    .mapas-frase {
+        font-size: 18px;
+    }
+
+    /* Encabezado de lámina: título a la izquierda, nota a la derecha */
+    .encabezado-seccion {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+    }
+
+    .encabezado-seccion h2 {
+        font-size: 44px;
+    }
+
+    .encabezado-nota {
+        text-align: right;
+    }
+
+    .mapa-colegio iframe {
+        height: 400px;
+    }
+
+    /* Elementos: 3 columnas, la quinta vuelve a su tamaño */
+    .tarjetas-elementos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .tarjeta-elemento:last-child {
+        grid-column: auto;
+    }
+
+    .enlaces-mapas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Pie en tres columnas */
+    .pie-principal {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+
+/* ==========================================================
+   LAPTOP (pantallas desde 1024px)
+   ========================================================== */
+@media (min-width: 1024px) {
+
+    /* Cabecera en una sola fila: logo a la izquierda, menú a la derecha */
+    .cabecera {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        height: 84px;
+        padding: 0 80px;
+    }
+
+    .logo-img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .logo-materia {
+        font-size: 21px;
+    }
+
+    .cabecera nav {
+        justify-self: end;
+    }
+
+    .cabecera nav a {
+        padding: 8px 18px;
+    }
+
+    .mapas {
+        padding: 70px 80px 110px;
+    }
+
+    .mapas h1 {
+        font-size: clamp(100px, 10vw, 140px);
+    }
+
+    .mapas-frase {
+        font-size: 20px;
+    }
+
+    .mapa-colegio,
+    .elementos-mapa,
+    .tipos-mapa,
+    .mapas-explorar {
+        margin-top: 90px;
+    }
+
+    .encabezado-seccion h2 {
+        font-size: 56px;
+    }
+
+    .mapa-colegio iframe {
+        height: 460px;
+    }
+
+    /* Elementos: las 5 tarjetas en una fila */
+    .tarjetas-elementos {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+    }
+
+    .tabla-mapas {
+        font-size: 15px;
+    }
+
+    .tabla-mapas th,
+    .tabla-mapas td {
+        padding: 16px 22px;
+    }
+
+    .enlaces-mapas {
+        gap: 24px;
+    }
+
+    .pie {
+        padding: 70px 80px 25px;
+    }
+
+    .pie-principal {
+        gap: 45px;
+        margin-bottom: 65px;
+    }
+}

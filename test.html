@@ -13,24 +13,26 @@
 </head>
 <body>
 
-     <!-- MENU -->
+    <!-- MENU -->
     <header class="cabecera">
-        <div class="logo" href="#inicio">
+        <a class="logo" href="index.html">
             <img class="logo-img" src="img/escudo.svg" alt="Escudo Eugenia Ravasco">
             <span class="logo-materia">GEOGRAFÍA</span>
-        </div>
+        </a>
 
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="#introduccion">¿Qué es?</a>
+            <a href="index.html#introduccion">¿Qué es?</a>
             <a href="recursos.html">Recursos</a>
             <a href="#test">Evaluación</a>
         </nav>
     </header>
 
 
+    <!-- CONTENIDO -->
+    <main>
 
-  <!-- 5. Evaluación -->
+        <!-- Evaluación -->
         <section id="test" class="evaluacion">
 
             <!-- Encabezado de la sección -->
@@ -40,7 +42,12 @@
                 <p class="encabezado-nota">LEE CON ATENCIÓN Y MARCA TUS RESPUESTAS.</p>
             </div>
 
-            <form class="formulario" method="post" action="">
+            <!-- El formulario se envía a FormSubmit, que lo reenvía al correo -->
+            <form class="formulario" action="https://formsubmit.co/kim15berlyantelo@gmail.com" method="POST">
+
+                <!-- Configuración de FormSubmit (no se ve en la página) -->
+                <input type="hidden" name="_subject" value="Nueva evaluación de Geografía">
+                <input type="hidden" name="_template" value="table">
 
                 <!-- Datos del estudiante -->
                 <div class="datos-estudiante">
@@ -59,22 +66,22 @@
                     <legend><span>01</span> ¿Qué es la geografía?</legend>
                     <div class="opciones">
                         <label>
-                            <input type="radio" name="pregunta1" value="La ciencia que estudia la Tierra, sus lugares y la relación entre las personas y el ambiente" required>
+                            <input type="radio" name="pregunta1" value="A. La ciencia que estudia la Tierra, sus lugares y la relación entre las personas y el ambiente" required>
                             <span class="opcion-letra">A</span>
                             <span>La ciencia que estudia la Tierra, sus lugares y la relación entre las personas y el ambiente.</span>
                         </label>
                         <label>
-                            <input type="radio" name="pregunta1" value="La ciencia que estudia únicamente los animales">
+                            <input type="radio" name="pregunta1" value="B. La ciencia que estudia únicamente los animales">
                             <span class="opcion-letra">B</span>
                             <span>La ciencia que estudia únicamente los animales.</span>
                         </label>
                         <label>
-                            <input type="radio" name="pregunta1" value="La ciencia que estudia los planetas y las estrellas">
+                            <input type="radio" name="pregunta1" value="C. La ciencia que estudia los planetas y las estrellas">
                             <span class="opcion-letra">C</span>
                             <span>La ciencia que estudia los planetas y las estrellas.</span>
                         </label>
                         <label>
-                            <input type="radio" name="pregunta1" value="La ciencia que estudia las enfermedades">
+                            <input type="radio" name="pregunta1" value="D. La ciencia que estudia las enfermedades">
                             <span class="opcion-letra">D</span>
                             <span>La ciencia que estudia las enfermedades.</span>
                         </label>
@@ -86,247 +93,73 @@
                     <legend><span>02</span> ¿Qué estudia la hidrografía?</legend>
                     <div class="opciones">
                         <label>
-                            <input type="radio" name="pregunta2" value="El relieve y las montañas" required>
+                            <input type="radio" name="pregunta2" value="A. El relieve y las montañas" required>
                             <span class="opcion-letra">A</span>
                             <span>El relieve y las montañas.</span>
                         </label>
                         <label>
-                            <input type="radio" name="pregunta2" value="Los cuerpos de agua del planeta">
+                            <input type="radio" name="pregunta2" value="B. Los cuerpos de agua del planeta">
                             <span class="opcion-letra">B</span>
                             <span>Los cuerpos de agua del planeta.</span>
                         </label>
                         <label>
-                            <input type="radio" name="pregunta2" value="Los continentes y sus fronteras">
+                            <input type="radio" name="pregunta2" value="C. Los continentes y sus fronteras">
                             <span class="opcion-letra">C</span>
                             <span>Los continentes y sus fronteras.</span>
                         </label>
                         <label>
-                            <input type="radio" name="pregunta2" value="Los animales y plantas">
+                            <input type="radio" name="pregunta2" value="D. Los animales y plantas">
                             <span class="opcion-letra">D</span>
                             <span>Los animales y plantas.</span>
                         </label>
                     </div>
                 </fieldset>
 
-                <!-- Pregunta 3: varias respuestas -->
+                <!-- Pregunta 3: varias respuestas (cada casilla con su propio name) -->
                 <fieldset class="pregunta">
                     <legend><span>03</span> ¿Qué temas estudia la geografía?</legend>
                     <div class="opciones">
                         <label>
-                            <input type="checkbox" name="pregunta3" value="Clima">
+                            <input type="checkbox" name="pregunta3-A" value="Clima">
                             <span class="opcion-letra">A</span>
                             <span>Clima</span>
                         </label>
                         <label>
-                            <input type="checkbox" name="pregunta3" value="Relieve">
+                            <input type="checkbox" name="pregunta3-B" value="Relieve">
                             <span class="opcion-letra">B</span>
                             <span>Relieve</span>
                         </label>
                         <label>
-                            <input type="checkbox" name="pregunta3" value="Hidrografía">
+                            <input type="checkbox" name="pregunta3-C" value="Hidrografía">
                             <span class="opcion-letra">C</span>
                             <span>Hidrografía</span>
                         </label>
                         <label>
-                            <input type="checkbox" name="pregunta3" value="Matemáticas">
+                            <input type="checkbox" name="pregunta3-D" value="Matemáticas">
                             <span class="opcion-letra">D</span>
                             <span>Matemáticas</span>
                         </label>
                     </div>
                 </fieldset>
 
-                <!-- Pregunta 4: crucigrama -->
-                <fieldset class="crucigrama">
-                    <legend><span>04</span> Mini crucigrama</legend>
-                    <p>Ocho palabras para completar el mapa. Escribe una letra por casilla.</p>
-
-                    <div class="crucigrama-contenido">
-                        <table class="cuadricula">
-                            <tr>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><span class="cruci-num">1</span><input type="text" maxlength="1" name="c0-2"></td>
-                                <td><input type="text" maxlength="1" name="c0-3"></td>
-                                <td><input type="text" maxlength="1" name="c0-4"></td>
-                                <td><span class="cruci-num">2</span><input type="text" maxlength="1" name="c0-5"></td>
-                                <td><input type="text" maxlength="1" name="c0-6"></td>
-                                <td><input type="text" maxlength="1" name="c0-7"></td>
-                                <td class="bloqueada"></td>
-                            </tr>
-                            <tr>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c1-5"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><span class="cruci-num">3</span><input type="text" maxlength="1" name="c1-8"></td>
-                            </tr>
-                            <tr>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c2-5"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c2-8"></td>
-                            </tr>
-                            <tr>
-                                <td><span class="cruci-num">4</span><input type="text" maxlength="1" name="c3-0"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c3-5"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c3-8"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" maxlength="1" name="c4-0"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><span class="cruci-num">5</span><input type="text" maxlength="1" name="c4-3"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c4-5"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c4-8"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" maxlength="1" name="c5-0"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c5-3"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c5-5"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c5-8"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" maxlength="1" name="c6-0"></td>
-                                <td class="bloqueada"></td>
-                                <td><span class="cruci-num">6</span><input type="text" maxlength="1" name="c6-2"></td>
-                                <td><input type="text" maxlength="1" name="c6-3"></td>
-                                <td><input type="text" maxlength="1" name="c6-4"></td>
-                                <td><input type="text" maxlength="1" name="c6-5"></td>
-                                <td><input type="text" maxlength="1" name="c6-6"></td>
-                                <td><input type="text" maxlength="1" name="c6-7"></td>
-                                <td><input type="text" maxlength="1" name="c6-8"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" maxlength="1" name="c7-0"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c7-3"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c7-5"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c7-8"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" maxlength="1" name="c8-0"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c8-3"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                            </tr>
-                            <tr>
-                                <td><span class="cruci-num">7</span><input type="text" maxlength="1" name="c9-0"></td>
-                                <td><input type="text" maxlength="1" name="c9-1"></td>
-                                <td><input type="text" maxlength="1" name="c9-2"></td>
-                                <td><input type="text" maxlength="1" name="c9-3"></td>
-                                <td><input type="text" maxlength="1" name="c9-4"></td>
-                                <td><input type="text" maxlength="1" name="c9-5"></td>
-                                <td><input type="text" maxlength="1" name="c9-6"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" maxlength="1" name="c10-0"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c10-3"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" maxlength="1" name="c11-0"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td><input type="text" maxlength="1" name="c11-3"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" maxlength="1" name="c12-0"></td>
-                                <td class="bloqueada"></td>
-                                <td><span class="cruci-num">8</span><input type="text" maxlength="1" name="c12-2"></td>
-                                <td><input type="text" maxlength="1" name="c12-3"></td>
-                                <td><input type="text" maxlength="1" name="c12-4"></td>
-                                <td><input type="text" maxlength="1" name="c12-5"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                                <td class="bloqueada"></td>
-                            </tr>
-                        </table>
-
-                        <div class="pistas">
-                            <div>
-                                <h4>Horizontales</h4>
-                                <ul>
-                        <li><b>1.</b> Gran masa de agua salada.</li>
-                        <li><b>6.</b> Elevación natural del terreno.</li>
-                        <li><b>7.</b> Línea central del planeta.</li>
-                        <li><b>8.</b> Representación de un territorio.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4>Verticales</h4>
-                                <ul>
-                        <li><b>2.</b> Río que desemboca en otro.</li>
-                        <li><b>3.</b> Lugar donde vive una especie.</li>
-                        <li><b>4.</b> Gran extensión de tierra.</li>
-                        <li><b>5.</b> Ciencia que estudia la Tierra.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <!-- Botones -->
+                <!-- Botón -->
                 <div class="botones-formulario">
                     <button type="submit" class="boton-principal">Enviar respuestas <span>↗</span></button>
-                    <a class="boton-secundario" href="#inicio">Siguiente <span>→</span></a>
                 </div>
 
             </form>
 
         </section>
 
-        <!-- Franja oscura -->
-        <div class="franja-oscura">
-            <span>LATITUD</span><b>-</b>
-            <span>LONGITUD</span><b>-</b>
-            <span>TERRITORIO</span><b>-</b>
-            <span>PAISAJE</span>
-        </div>
+    </main>
+
+    <!-- Franja oscura -->
+    <div class="franja-oscura">
+        <span>LATITUD</span><b>-</b>
+        <span>LONGITUD</span><b>-</b>
+        <span>TERRITORIO</span><b>-</b>
+        <span>PAISAJE</span>
+    </div>
 
 </body>
 </html>
