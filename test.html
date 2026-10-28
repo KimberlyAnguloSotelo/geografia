@@ -15,31 +15,30 @@
 
     <!-- MENU -->
     <header class="cabecera">
-        <a class="logo" href="index.html">
+        <label class="logo">
+            <!-- Checkbox invisible: guarda si el menú está abierto o cerrado -->
+            <input type="checkbox" class="menu-hamburguesa">
+            <!-- El logo es el botón que abre y cierra el menú -->
             <img class="logo-img" src="img/escudo.svg" alt="Escudo Eugenia Ravasco">
             <span class="logo-materia">GEOGRAFÍA</span>
-        </a>
+        </label>
 
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="index.html#introduccion">¿Qué es?</a>
+            <a href="introduccion.html">¿Qué es?</a>
             <a href="recursos.html">Recursos</a>
-            <a href="#test">Evaluación</a>
+            <a href="test.html">Evaluación</a>
         </nav>
     </header>
 
 
-    <!-- CONTENIDO -->
     <main>
-
-        <!-- Evaluación -->
         <section id="test" class="evaluacion">
 
             <!-- Encabezado de la sección -->
             <div class="evaluacion-encabezado">
-                <p class="subtitulo-seccion">COMPRUEBA LO APRENDIDO · 04</p>
+                <p class="subtitulo-seccion">COMPRUEBA LO APRENDIDO 03</p>
                 <h2>SECCIÓN DE<br><span class="acento">EVALUACIÓN</span></h2>
-                <p class="encabezado-nota">LEE CON ATENCIÓN Y MARCA TUS RESPUESTAS.</p>
             </div>
 
             <!-- El formulario se envía a FormSubmit, que lo reenvía al correo -->
@@ -57,7 +56,7 @@
                     </label>
                     <label>
                         <span>Curso</span>
-                        <input type="text" name="curso" placeholder="Ej. 5.º A" required>
+                        <input type="text" name="curso" placeholder="Ej. 5to de secundaria Azul" required>
                     </label>
                 </div>
 

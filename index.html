@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,15 +14,18 @@
 </head>
 <body>
 
-    <!-- MENU -->
+    <!-- Menu -->
     <header class="cabecera">
-        <div class="logo" href="#inicio">
+        <label class="logo">    <!--labeles el texto que dice qué es un campo del formulario, y al hacer clic en él se activa ese campo. -->
+            <!-- Checkbox invisible: guarda si el menú está abierto o cerrado -->
+            <input type="checkbox" class="menu-hamburguesa">
+            <!-- El logo es el botón que abre y cierra el menú -->
             <img class="logo-img" src="img/escudo.svg" alt="Escudo Eugenia Ravasco">
             <span class="logo-materia">GEOGRAFÍA</span>
-        </div>
+        </label>
 
         <nav>
-            <a href="#inicio">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="introduccion.html">¿Qué es?</a>
             <a href="recursos.html">Recursos</a>
             <a href="test.html">Evaluación</a>
@@ -40,15 +43,9 @@
 
                 <p class="portada-frase">UN VIAJE POR LA TIERRA, SU TERRITORIO Y LAS PERSONAS QUE LA HABITAN.</p>
 
-                <div class="autores">
-                    <span>MÉRIDA MATÍAS</span>
-                    <span>NELSON GUTIERREZ</span>
-                    <span>AMIA VELÁSQUEZ</span>
-                </div>
-
                 <div class="portada-accion">
                     <a class="boton-principal" href="nosotros.html">
-                        Nosotros
+                        NOSOTROS
                     </a>
                 </div>
             </div>
@@ -61,7 +58,7 @@
         </section>
     </main>
 
-    <!-- ========== PIE DE PÁGINA ========== -->
+    <!-- pie de pagina -->
     <footer class="pie">
 
         <div class="pie-principal">
@@ -89,7 +86,6 @@
 
         </div>
 
-        <!-- Línea final -->
         <div class="pie-final">
             <p>MÉRIDA MATÍAS - NELSON GUTIERREZ - AMIA VELÁSQUEZ</p>
         </div>

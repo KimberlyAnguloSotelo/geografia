@@ -1,21 +1,17 @@
-/* ==========================================================
-   PÁGINA PROFESORES (profesores.html)
-   Mobile first: primero el celular, después tablet y laptop
-   ========================================================== */
-
-
-/* ---------- BASE ---------- */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
     background-color: #e4d9c1;
+    background-image:
+        linear-gradient(rgba(228, 217, 193, 0.3), rgba(228, 217, 193, 0.3)),
+        url('../img/fondo-mapa.jpg');
+    background-size: cover;
+    background-position: center;
     color: #292927;
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
 }
 
 img {
@@ -24,30 +20,36 @@ img {
 }
 
 a {
-    color: inherit;
+    color: #e4d9c1;
 }
 
 
-/* ---------- CABECERA Y MENÚ ---------- */
 .cabecera {
-    position: sticky;             /* se queda pegada arriba al bajar */
+    position: sticky;
     top: 0;
     z-index: 100;
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     gap: 4px;
-    padding: 10px 16px 0;
+    padding: 10px 16px;
     background-color: #292927;
-    color: #f2ead8;
+}
+
+.menu-hamburguesa {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .logo {
     display: grid;
-    grid-auto-flow: column;
+    grid-template-columns: auto auto;
     justify-content: start;
     align-items: center;
     gap: 12px;
-    text-decoration: none;
+    color: #e4d9c1;
+    cursor: pointer;
 }
 
 .logo-img {
@@ -59,26 +61,24 @@ a {
 .logo-materia {
     font-family: 'Black Ops One', Impact, sans-serif;
     font-size: 18px;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.5px;
 }
 
-/* Nombre del colegio: oculto en celular */
-.logo-colegio {
-    display: none;
-}
-
-/* Menú en celular: 3 enlaces por fila */
 .cabecera nav {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
     justify-content: start;
-    padding-bottom: 6px;
-    white-space: nowrap;
+    padding-top: 8px;
+}
+
+.cabecera:has(.menu-hamburguesa:checked) nav {
+    display: grid;
 }
 
 .cabecera nav a {
-    position: relative;
-    padding: 8px 11px;
+    padding: 12px 4px;
+    border-top: 1px solid rgba(242, 234, 216, 0.15);
     color: #f2ead8;
     font-family: 'Fredoka', sans-serif;
     font-size: 13px;
@@ -87,17 +87,13 @@ a {
     text-underline-offset: 5px;
 }
 
-/* Puntito separador entre los enlaces */
-.cabecera nav a:not(:last-child)::after {
-    content: '•';
-    position: absolute;
-    right: -3px;
-    color: #867d6d;
-}
-
 .cabecera nav a:hover {
     color: #c9b997;
 }
+
+
+
+
 
 
 /* ---------- SECCIÓN PROFESORES ---------- */
@@ -406,25 +402,44 @@ a {
 }
 
 
-/* ==========================================================
-   TABLET (pantallas desde 768px)
-   ========================================================== */
+
+
+
+/* Tablet */
 @media (min-width: 768px) {
 
-    .logo-colegio {
-        display: block;
-        padding-left: 13px;
-        border-left: 1px solid rgba(242, 234, 216, 0.4);
-        font-family: 'Fredoka', sans-serif;
-        font-size: 9px;
-        line-height: 1.35;
+    .logo {
+        cursor: default;
     }
 
-    /* Menú en una sola fila */
-    .cabecera nav {
-        grid-template-columns: none;
-        grid-auto-flow: column;
+    .cabecera {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: none;
+        align-items: center;
+        height: 72px;
+        padding: 0 24px;
     }
+
+    .cabecera nav {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: none;
+        padding-top: 0;
+        padding-bottom: 6px;
+        padding-left: 300px;
+    }
+
+    .cabecera nav a {
+        padding: 8px 11px;
+        border-top: none;
+        font-size: 13px;
+    }
+    
+
+
+
+
+
 
     .profesores h1 {
         font-size: 76px;
@@ -451,15 +466,11 @@ a {
 }
 
 
-/* ==========================================================
-   LAPTOP (pantallas desde 1024px)
-   ========================================================== */
+/*laptop*/
+
 @media (min-width: 1024px) {
 
-    /* Cabecera en una sola fila: logo a la izquierda, menú a la derecha */
     .cabecera {
-        grid-template-columns: auto 1fr;
-        align-items: center;
         height: 84px;
         padding: 0 80px;
     }
@@ -475,11 +486,14 @@ a {
 
     .cabecera nav {
         justify-self: end;
+        padding-bottom: 0;
     }
 
     .cabecera nav a {
         padding: 8px 18px;
     }
+
+    
 
     .profesores {
         min-height: 786px;
